@@ -44,18 +44,18 @@ if you save a scene it will be persited to disk for later use. to call a saved s
 
 instantiates a node-enocean-button and calls its respective methods.
 
-|parameter|value|description|
-|-------|----|--|
-|type|"switch" or short "s"| the name of the command.|
-|ch|1-127| the channel or address of the button to send the command|
-|value| "on" or "off"| switches the light on or off|
+| Parameter | Value | Description |
+| ------- | ---- | --- |
+| type | "switch" or short "s" |  the name of the command. |
+| ch | 1-127 | the channel or address of the button to send the command |
+| value |  "on" or "off" |  switches the light on or off |
 
 ### dimmer (d)
 
 instantiates a node-enocean-dimmer and calls its respective methods.
 
-|parameter|value|description|
-|-------|----|--|
+| Parameter | Value | Description |
+| ------- | ---- | --- |
 |type|"dimmer" or short "d"| the name of the command.|
 |ch|1-127| the channel or address of the button to send the command|
 |value|"off" or 0-100| switches the light off or sets the dimm value in percentages|
@@ -65,7 +65,7 @@ instantiates a node-enocean-dimmer and calls its respective methods.
 
 waits for the given time in milliseconds before executing the next commands
 
-|parameter|value|description|
-|-------|----|--|
+|Parameter|Value|Description|
+|-------|----|---|
 |type|"wait" or short "w"| the name of the command.|
 |value|number in ms| sets the waiting time in milliseconds|
