@@ -1,0 +1,32 @@
+{
+  "name": "node-enocean-lightscene",
+  "version": "0.0.0",
+  "description": "a lightscene manager for node-enocean",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Holger-Will/node-enocean-lightscene.git"
+  },
+  "keywords": [
+    "lightscene",
+    "manager",
+    "enocean",
+    "home",
+    "automation",
+    "smart",
+    "home",
+    "iot"
+  ],
+  "author": "Holger Will",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Holger-Will/node-enocean-lightscene/issues"
+  },
+  "homepage": "https://github.com/Holger-Will/node-enocean-lightscene#readme",
+  "dependencies": {
+    "asyncawait": "^1.0.6"
+  }
+}
