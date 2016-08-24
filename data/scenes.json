@@ -1,0 +1,19 @@
+{
+    "Dinner": {
+        "name": "Dinner",
+        "des": "Dinner",
+        "run": [
+            {
+                "type": "switch",
+                "ch": 1,
+                "value": "on"
+            },
+            {
+                "type": "dimmer",
+                "ch": 4,
+                "value": 50,
+                "speed": "50"
+            }
+        ]
+    }
+}
