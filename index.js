@@ -7,7 +7,7 @@ const await = require('asyncawait/await');
 const delay = require('timeout-as-promise');
 const fs = require("fs.promised");
 
-function Lightscene(app,options = {sceneFile:"./data/scenes.json"}){
+function Lightscene(app,options = {sceneFile:__dirname+"/data/scenes.json"}){
   this.scenes = require(options.sceneFile)
   this.actuators = []
   for(item in this.scenes){
@@ -30,9 +30,9 @@ function Lightscene(app,options = {sceneFile:"./data/scenes.json"}){
     this.scenes[scene.name]=scene
     this.actuators.forEach(function(item,index){
       if(item.scene==scene.name){
-        this.actuators[index].click=function(){}
-        this.actuators[index].id=""
-        delete this.actuators[index]
+        item.id="old"
+        item.removeListener()
+        delete item
         this.actuators.splice(index,1)
       }
     }.bind(this))
@@ -116,7 +116,7 @@ function Lightscene(app,options = {sceneFile:"./data/scenes.json"}){
     try{
       await(fs.writeFile( options.sceneFile , JSON.stringify( this.scenes , null , 4 )))
     }catch(err){
-      console.log("could not write to file")
+      console.log("could not write to file:" + err)
     }
   })
   this.addListener=function (sceneName,listener){
