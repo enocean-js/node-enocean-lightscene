@@ -2,6 +2,12 @@
     "Dinner": {
         "name": "Dinner",
         "des": "Dinner",
+        "listener": [
+            {
+                "id": "002a1d4d",
+                "button": "B1"
+            }
+        ],
         "run": [
             {
                 "type": "switch",
@@ -12,6 +18,28 @@
                 "type": "dimmer",
                 "ch": 4,
                 "value": 50,
+                "speed": "50"
+            }
+        ]
+    },
+    "AntiDinner": {
+        "name": "AntiDinner",
+        "listener": [
+            {
+                "id": "002a1d4d",
+                "button": "B0"
+            }
+        ],
+        "run": [
+            {
+                "type": "s",
+                "ch": "1",
+                "value": "off"
+            },
+            {
+                "type": "dimmer",
+                "ch": 4,
+                "value": "off",
                 "speed": "50"
             }
         ]
