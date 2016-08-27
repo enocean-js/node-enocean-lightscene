@@ -1,13 +1,27 @@
-var async = require('asyncawait/async');
-var await = require('asyncawait/await');
-var Button = require('node-enocean-button')
-var Dimmer = require('node-enocean-dimmer')
-var delay = require('timeout-as-promise');
+const Button = require('node-enocean-button')
+const Dimmer = require('node-enocean-dimmer')
+const Actuator = require('node-enocean-button-actuator')
 
+const async = require('asyncawait/async');
+const await = require('asyncawait/await');
+const delay = require('timeout-as-promise');
 const fs = require("fs.promised");
-function Lightscene(app,options = {sceneFile:"./data/scenes.json"}){
 
+function Lightscene(app,options = {sceneFile:"./data/scenes.json"}){
   this.scenes = require(options.sceneFile)
+  this.actuators = []
+  for(item in this.scenes){
+    if(this.scenes[item].listener!=undefined)
+    this.scenes[item].listener.forEach(function(item2){
+      var a = new Actuator(app)
+      a.id=item2.id
+      this.actuators.push(a)
+      a.sceneRunner=this
+      a.scene=item
+      a.button=item2.button
+      a.click=function(data){if(this.button==data.button) this.sceneRunner.execute(this.scene)}
+    }.bind(this))
+  }
   this.app = app
   this.addOrEdit=async(function(scene){
     if((typeof scene)=="string"){
@@ -87,6 +101,8 @@ function Lightscene(app,options = {sceneFile:"./data/scenes.json"}){
       console.log("could not write to file")
     }
   })
+  this.addListener=function (scene){
+  }
 }
 
 module.exports= Lightscene

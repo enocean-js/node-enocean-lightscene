@@ -30,6 +30,7 @@
     "asyncawait": "^1.0.6",
     "fs.promised": "^3.0.0",
     "node-enocean-button": "^2.2.2",
+    "node-enocean-button-actuator": "^2.0.0",
     "node-enocean-dimmer": "^2.2.1",
     "timeout-as-promise": "^1.0.0"
   },
