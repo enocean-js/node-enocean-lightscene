@@ -30,6 +30,9 @@ function Lightscene(app,options = {sceneFile:"./data/scenes.json"}){
     this.scenes[scene.name]=scene
     this.actuators.forEach(function(item,index){
       if(item.scene==scene.name){
+        this.actuators[index].click=function(){}
+        this.actuators[index].id=""
+        delete this.actuators[index]
         this.actuators.splice(index,1)
       }
     }.bind(this))
