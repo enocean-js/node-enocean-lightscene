@@ -14,9 +14,9 @@ enocean.on("ready", async (function(){
     "desc":"Test",
     "run":[{"type":"switch","ch":1,"value":"off"},{"type":"dimmer","ch":4,"value":100,"speed":"ff"}]
   }
-  console.log("Add JSON")
-  await(lightscene.addOrEdit(s))
-  console.log("Edit String")
+  //console.log("Add JSON")
+  //await(lightscene.addOrEdit(s))
+  //console.log("Edit String")
   await(lightscene.addOrEdit(st))
   console.log("Execute sved Scene named in CLI")
   await(lightscene.execute(process.argv[2]))
