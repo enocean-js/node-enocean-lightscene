@@ -5,14 +5,15 @@ var Dimmer = require('node-enocean-dimmer')
 var delay = require('timeout-as-promise');
 
 const fs = require("fs.promised");
-var scenes = require("./data/scenes.json")
-function Lightscene(app){
+function Lightscene(app,options = {sceneFile:"./data/scenes.json"}){
+
+  this.scenes = require(options.sceneFile)
   this.app = app
   this.addOrEdit=async(function(scene){
     if((typeof scene)=="string"){
       scene = this.string2JSON(scene)
     }
-    scenes[scene.name]=scene
+    this.scenes[scene.name]=scene
     await(this.saveScenes())
   })
   this.string2JSON=function(st){
@@ -38,11 +39,11 @@ function Lightscene(app){
     return s
   }
   this.remove=async(function(scene){
-    delete scenes[scene.name]
+    delete this.scenes[scene.name]
     await(this.saveScenes())
   })
   this.execute=async(function(nameOrNumber){
-    var scene=scenes[nameOrNumber]
+    var scene=this.scenes[nameOrNumber]
     await(this.executeJSON(scene))
   })
   this.executeJSON=async(function(scene){
@@ -81,7 +82,7 @@ function Lightscene(app){
   })
   this. saveScenes=async(function (){
     try{
-      await(fs.writeFile( "./data/scenes.json" , JSON.stringify( scenes , null , 4 )))
+      await(fs.writeFile( options.sceneFile , JSON.stringify( this.scenes , null , 4 )))
     }catch(err){
       console.log("could not write to file")
     }
