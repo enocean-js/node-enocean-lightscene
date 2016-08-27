@@ -43,5 +43,51 @@
                 "speed": "50"
             }
         ]
+    },
+    "Test": {
+        "name": "Test",
+        "run": [
+            {
+                "type": "w",
+                "ch": null,
+                "value": "1000"
+            },
+            {
+                "type": "s",
+                "ch": "1",
+                "value": "on"
+            },
+            {
+                "type": "w",
+                "ch": null,
+                "value": "1000"
+            },
+            {
+                "type": "d",
+                "ch": "4",
+                "value": "50"
+            },
+            {
+                "type": "w",
+                "ch": null,
+                "value": "1000"
+            },
+            {
+                "type": "s",
+                "ch": "1",
+                "value": "off"
+            },
+            {
+                "type": "w",
+                "ch": null,
+                "value": "1000"
+            },
+            {
+                "type": "d",
+                "ch": "4",
+                "value": "40",
+                "speed": "01"
+            }
+        ]
     }
 }
