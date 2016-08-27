@@ -28,6 +28,21 @@ function Lightscene(app,options = {sceneFile:"./data/scenes.json"}){
       scene = this.string2JSON(scene)
     }
     this.scenes[scene.name]=scene
+    this.actuators.forEach(function(item,index){
+      if(item.scene==scene.name){
+        this.actuators.splice(index,1)
+      }
+    }.bind(this))
+    if(scene.listener!=undefined)
+    scene.listener.forEach(function(item2){
+      var a = new Actuator(app)
+      a.id=item2.id
+      this.actuators.push(a)
+      a.sceneRunner=this
+      a.scene=scene.name
+      a.button=item2.button
+      a.click=function(data){if(this.button==data.button) this.sceneRunner.execute(this.scene)}
+    }.bind(this))
     await(this.saveScenes())
   })
   this.string2JSON=function(st){
@@ -101,7 +116,19 @@ function Lightscene(app,options = {sceneFile:"./data/scenes.json"}){
       console.log("could not write to file")
     }
   })
-  this.addListener=function (scene){
+  this.addListener=function (sceneName,listener){
+    // // Interface not ready! DONT USE
+    // var scene = this.scenes[sceneName]
+    // if(scene.listener==undefined) scene.listener=[]
+    // scene.listener.push(listener)
+    // var a = new Actuator(this.app)
+    // a.id=listener.sensorId
+    // this.actuators.push(a)
+    // a.sceneRunner=this
+    // a.scene=item
+    // a.button=listener.button
+    // a.click=function(data){if(this.button==data.button) this.sceneRunner.execute(this.scene)}
+    // this.saveScenes()
   }
 }
 
