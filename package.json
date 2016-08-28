@@ -1,6 +1,6 @@
 {
   "name": "node-enocean-lightscene",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "a lightscene manager for node-enocean",
   "main": "index.js",
   "scripts": {
