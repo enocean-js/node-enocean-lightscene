@@ -85,10 +85,11 @@ function Lightscene(app,options = {sceneFile:__dirname+"/data/scenes.json"}){
         case "s":
         case "switch":
           var b = new Button(app,item.ch)
+          var button= (item.button==undefined) ? "A" : item.button
           if(item.value=="on"){
-            await(b.A1.click())
+            await(b[`${button}1`].click())
           }else{
-            await(b.A0.click())
+            await(b[`${button}0`].click())
           }
         break;
         case "d":
