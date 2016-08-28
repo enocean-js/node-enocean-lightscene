@@ -35,7 +35,7 @@ enocean.on("ready", async (function(){
   //console.log("Add JSON")
   //await(lightscene.addOrEdit(s))
   //console.log("Edit String")
-  await(lightscene.addOrEdit(s))
+  //await(lightscene.addOrEdit(s))
   console.log("Execute saved Scene named in CLI")
   await(lightscene.execute(process.argv[2]))
   console.log("execute save Scene by name")

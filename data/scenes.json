@@ -12,7 +12,8 @@
             {
                 "type": "switch",
                 "ch": 1,
-                "value": "on"
+                "value": "on",
+                "button":"B"
             },
             {
                 "type": "dimmer",
@@ -30,11 +31,12 @@
                 "button": "B0"
             }
         ],
-        "run": [
+        "run": [{"type":"wait","value":1000},
             {
                 "type": "s",
                 "ch": "1",
-                "value": "off"
+                "value": "off",
+                "button":"B"
             },
             {
                 "type": "dimmer",
